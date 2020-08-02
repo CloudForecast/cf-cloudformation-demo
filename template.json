@@ -6,13 +6,14 @@
   "Parameters" : {
     "KeyName": {
       "Description" : "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+      "Default" : "cf-kp",
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription" : "must be the name of an existing EC2 KeyPair."
     },
     "InstanceType" : {
       "Description" : "WebServer EC2 instance type",
       "Type" : "String",
-      "Default" : "t2.small",
+      "Default" : "t2.micro",
       "AllowedValues" : [ "t1.micro", "t2.nano", "t2.micro"],
       "ConstraintDescription" : "must be a valid EC2 instance type."
     },
@@ -65,7 +66,7 @@
       "Metadata" : {
         "AWS::CloudFormation::Init" : {
           "configSets" : {
-            "InstallAndRun" : [ "Install", "Configure" ]
+            "InstallAndRun" : [ "Install" ]
           },
           "Install" : {
             "packages" : {
