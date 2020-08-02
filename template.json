@@ -33,11 +33,6 @@
       "t2.nano"     : { "Arch" : "HVM64"  },
       "t2.micro"    : { "Arch" : "HVM64"  }
     },
-    "AWSInstanceType2NATArch" : {
-      "t1.micro"    : { "Arch" : "NATHVM64"  },
-      "t2.nano"     : { "Arch" : "NATHVM64"  },
-      "t2.micro"    : { "Arch" : "NATHVM64"  }
-    },
     "AWSRegionArch2AMI" : {
       "us-east-1"        : {"HVM64" : "ami-0080e4c5bc078760e", "HVMG2" : "ami-0aeb704d503081ea6"},
       "us-west-2"        : {"HVM64" : "ami-01e24be29428c15b2", "HVMG2" : "ami-0fe84a5b4563d8f27"},
@@ -178,7 +173,7 @@
          },
          {
             "Key" : "env",
-            "Value" : "dev"
+            "Value" : "staging"
          },
          {
             "Key" : "service",
@@ -220,8 +215,8 @@
       "Properties" : {
         "GroupDescription" : "Enable HTTP access via port 80",
         "SecurityGroupIngress" : [
-          {"IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" : "0.0.0.0/0"},
-          {"IpProtocol" : "tcp", "FromPort" : "22", "ToPort" : "22", "CidrIp" : { "Ref" : "SSHLocation"}}
+          {"IpProtocol" : "tcp", "FromPort" : 80, "ToPort" : 80, "CidrIp" : "0.0.0.0/0"},
+          {"IpProtocol" : "tcp", "FromPort" : 22, "ToPort" : 22, "CidrIp" : { "Ref" : "SSHLocation"}}
         ]
       }      
     }          
